@@ -1,0 +1,25 @@
+{
+  "name": "crypto_lib_benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohdrashid/crypto_lib_benchmark.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohdrashid/crypto_lib_benchmark/issues"
+  },
+  "homepage": "https://github.com/mohdrashid/crypto_lib_benchmark#readme",
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "tweetnacl": "^1.0.1",
+    "sodium":"latest",
+    "js-nacl":"latest"
+  }
+}
