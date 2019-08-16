@@ -5,7 +5,7 @@ var Benchmark     = require('benchmark');
 var tweetnacl     = require('tweetnacl');
 var tweetnaclfast = require('tweetnacl/nacl-fast');
 var sodium        = require('sodium');
-var jsnacl        = require('js-nacl');
+//var jsnacl        = require('js-nacl');
 
 var base64_to_Uint8Array = function(input) {
   var raw = new Buffer(input, 'base64');
@@ -95,7 +95,7 @@ test_sodium.prototype.validate = function() {
   assert(this.sig === _sig, "wrong signature");
 };
 
-/*********************** js-NaCl tests ***************************/
+/*********************** js-NaCl tests ***************************
 
 var test_jsnacl = function() {
   this.nacl     = jsnacl.instantiate();
@@ -136,13 +136,14 @@ sod.sign();
 sod.verify();
 sod.validate();
 
+/*
 console.log(" - testing js-NaCl");
 var jsn = new test_jsnacl();
 jsn.fromSeed();
 jsn.sign();
 jsn.verify();
 jsn.validate();
-
+*/
 console.log(" - testing tweetnacl");
 var tw1 = new test_tweetnacl(tweetnacl);
 tw1.fromSeed();
@@ -180,9 +181,9 @@ new Benchmark.Suite()
 .add('sodium.fromSeed', function() {
   sod.fromSeed();
 })
-.add('js-NaCl.fromSeed', function() {
+/*.add('js-NaCl.fromSeed', function() {
   jsn.fromSeed();
-})
+})*/
 .add('tweetnacl.fromSeed', function() {
   tw1.fromSeed();
 })
@@ -204,9 +205,9 @@ new Benchmark.Suite()
 .add('sodium.sign', function() {
   sod.sign();
 })
-.add('js-NaCl.sign', function() {
+/*.add('js-NaCl.sign', function() {
   jsn.sign();
-})
+})*/
 .add('tweetnacl.sign', function() {
   tw1.sign();
 })
@@ -227,10 +228,10 @@ console.log("\nBrenchmark Verify:");
 new Benchmark.Suite()
 .add('sodium.verify', function() {
   sod.verify();
-})
+})/*
 .add('js-NaCl.verify', function() {
   jsn.verify();
-})
+})*/
 .add('tweetnacl.verify', function() {
   tw1.verify();
 })
